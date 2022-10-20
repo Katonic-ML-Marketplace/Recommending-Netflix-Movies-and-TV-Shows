@@ -20,7 +20,7 @@ st.set_page_config(
     initial_sidebar_state = 'auto'
 )
 
-st.sidebar.image('logo.png')
+st.sidebar.image('image/logo.png')
 st.sidebar.title('Netflix Movie Recommendation')
 st.sidebar.write('---')
 
@@ -32,7 +32,7 @@ This app **Recommends Movies to the User based on their Searches (Content).**!
 st.write('---')
 
 # Loads the Dataset
-data_path = 'netflix_titles.csv'
+data_path = 'data/netflix_titles.csv'
 data_df = pd.read_csv(data_path)
 data_df['description'] = data_df['description'].fillna('')
 st.write(data_df.head(20))
