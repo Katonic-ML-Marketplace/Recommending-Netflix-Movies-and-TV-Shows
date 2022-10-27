@@ -1,5 +1,4 @@
 import requests
-from io import BytesIO
 from PIL import Image
 
 import pandas as pd
@@ -9,9 +8,7 @@ import plotly.graph_objects  as go
 from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
-
-response = requests.get(url='https://katonic.ai/favicon.ico')
-im = Image.open(BytesIO(response.content))
+im = Image.open('image/favicon.ico')
 
 st.set_page_config(
     page_title='Netflix Movie Recommendation', 
@@ -20,7 +17,7 @@ st.set_page_config(
     initial_sidebar_state = 'auto'
 )
 
-st.sidebar.image('logo.png')
+st.sidebar.image('image/logo.png')
 st.sidebar.title('Netflix Movie Recommendation')
 st.sidebar.write('---')
 
@@ -32,7 +29,7 @@ This app **Recommends Movies to the User based on their Searches (Content).**!
 st.write('---')
 
 # Loads the Dataset
-data_path = 'netflix_titles.csv'
+data_path = 'data/netflix_titles.csv'
 data_df = pd.read_csv(data_path)
 data_df['description'] = data_df['description'].fillna('')
 st.write(data_df.head(20))
