@@ -1,5 +1,4 @@
 import requests
-from io import BytesIO
 from PIL import Image
 
 import pandas as pd
@@ -9,9 +8,7 @@ import plotly.graph_objects  as go
 from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
-
-response = requests.get(url='https://katonic.ai/favicon.ico')
-im = Image.open(BytesIO(response.content))
+im = Image.open('image/favicon.ico')
 
 st.set_page_config(
     page_title='Netflix Movie Recommendation', 
