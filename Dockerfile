@@ -1,8 +1,9 @@
 FROM python:3.8.2-slim
 
 COPY app.py .
-COPY netflix_titles.csv .
-COPY logo.png .
+COPY data/netflix_titles.csv data/.
+COPY image/logo.png image/.
+COPY image/favicon.ico image/.
 COPY requirements.txt .
 
 RUN pip install -r requirements.txt
