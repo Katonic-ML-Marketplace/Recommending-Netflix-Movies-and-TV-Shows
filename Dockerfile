@@ -1,5 +1,7 @@
 FROM python:3.8.2-slim
 
+RUN mkdir -p data image
+
 COPY app.py .
 COPY data/netflix_titles.csv data/.
 COPY image/logo.png image/.
